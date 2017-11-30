@@ -12,7 +12,7 @@ public class ClienteDAO {
 	public boolean cadastrarCliente(ClienteTO clientTO) {
 		Connection conn;
 		
-		String sql = "INSERT INTO cliente (cpf, nome, rua, nascimento, cidade, telefone) VALUES "
+		String sql = "INSERT INTO cliente (cpf_cnpj, nome, rua, nascimento, cidade, telefone) VALUES "
 				+ "(?,?,?,?,?,?)";
 		
 		try {
@@ -26,7 +26,7 @@ public class ClienteDAO {
 			prep.setString(6, clientTO.getTelefone());
 				
 			prep.executeUpdate();
-			JOptionPane.showMessageDialog(null, "Cliente cadastrado com sucesso", "Sucesso", JOptionPane.PLAIN_MESSAGE);
+			JOptionPane.showMessageDialog(null, "Cliente cadastrado com sucesso", "Sucesso", JOptionPane.OK_OPTION);
 		
 
 		} catch (Exception e) {

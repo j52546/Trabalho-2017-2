@@ -1,4 +1,4 @@
-package br.edu.univas.si4.model;
+ package br.edu.univas.si4.model;
 
 public class DBException extends Exception {
 

@@ -20,9 +20,6 @@ import br.edu.univas.si4.controller.MainController;
 
 public class Login extends JFrame {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	
 	private MainController mainController;
@@ -155,9 +152,6 @@ public class Login extends JFrame {
 		password.setPreferredSize(new Dimension(200, 20));
 		return password;
 	}
-	
-	
-	
 	
 
 }

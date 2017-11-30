@@ -51,17 +51,17 @@ public class CadastroClientePanel extends JPanel{
 	private JTextField textEmail;
 	private JButton buttonCadastro;
 	
+	
 	private GridBagConstraints buttonConstraints;
 	private GridBagConstraints labelNomeConstraints;
 	private GridBagConstraints textNomeConstraints;
 	private GridBagConstraints labelNascimentoConstraints;
-	private GridBagConstraints textNascimentoConstraints;
 	private GridBagConstraints labelSexoConstraints;
 	private GridBagConstraints masculinoConstraints;
 	private GridBagConstraints femininoConstraints;
 	private GridBagConstraints labelCpfConstraints;
 	private GridBagConstraints textCpfConstraints;
-
+	private GridBagConstraints textNascimentoConstraints;
 	private GridBagConstraints labelRuaConstraints;
 	private GridBagConstraints textRuaConstraints;
 	private GridBagConstraints labelBairroConstraints;
@@ -135,7 +135,13 @@ public class CadastroClientePanel extends JPanel{
 		String cidade = getTextCidade().getText().toString();
 		String telefone = getTextTel().getText().toString();
 		String nascimento = getTextNascimento().getText().toString();
-		
+				
+		System.out.println(nome);
+		System.out.println(cpf);
+		System.out.println(rua);
+		System.out.println(cidade);
+		System.out.println(telefone);
+		System.out.println(nascimento);
 		
 		
 		SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
@@ -152,9 +158,7 @@ public class CadastroClientePanel extends JPanel{
 		
 		
 	}
-	
-
-	
+		
 	private JLabel getLabelNome() {
 		if(labelNome == null){
 			labelNome = new JLabel();
@@ -202,7 +206,6 @@ public class CadastroClientePanel extends JPanel{
 		return mascaraData;
 	}
 	
-
 	private JLabel getLabelSexo() {
 		if(labelSexo == null){
 			labelSexo = new JLabel();
@@ -237,7 +240,6 @@ public class CadastroClientePanel extends JPanel{
 		return buttonGroup;
 	}
 
-
 	private JLabel getLabelCpf() {
 		if(labelCpf== null){
 			labelCpf= new JLabel();
@@ -267,7 +269,6 @@ public class CadastroClientePanel extends JPanel{
 		}
 		return mascaraCpf;
 	}
-
 	
 	private JLabel getLabelRua() {
 		if(labelEndereco == null){
@@ -469,8 +470,6 @@ public class CadastroClientePanel extends JPanel{
 		}
 		return textCpfConstraints;
 	}
-
-	
 
 	private GridBagConstraints getLabelEnderecoConstraints() {
 		if(labelRuaConstraints == null){

@@ -27,17 +27,14 @@ import br.edu.univas.si4.controller.MainController;
 public class MainView extends JFrame {
 	
 	
-	
 	private static final long serialVersionUID = -5348235594859732161L;
 	
 	private JPanel centerPanel;
 	private MenuPanel menuPanel;
 	private MainController mainController;
-	
 	JMenuBar menubar;
 	JMenu menu, submenu;
 	JMenuItem mi, sair, inicioTela;
-	
 	
 	
 	public MainView(MainController mainController) {
@@ -67,14 +64,23 @@ public class MainView extends JFrame {
 	}
 
 	private void addComponents() {
-			menuPanel = new MenuPanel(this.mainController.getName());
-			this.getContentPane().add(menuPanel, BorderLayout.CENTER);
+				
+		menuPanel = new MenuPanel(this.mainController.getName());
+
+		
+		
+		this.getContentPane().add(menuPanel, BorderLayout.CENTER);
 
 	}
 	
+	private GridBagConstraints buttonConstraint(int x, int y) {
+		GridBagConstraints gbc = new GridBagConstraints();
+		gbc.gridx = x;
+		gbc.gridy = y;
+		gbc.insets = new Insets(20, 5, 20, 5);
+		return gbc;
+	}
 
-
-	
 	private void mudarParaTelaInicio() {
 		this.getContentPane().removeAll();
 		this.getContentPane().add(this.mainController.telaInicio(), BorderLayout.CENTER);
@@ -112,60 +118,11 @@ public class MainView extends JFrame {
 	private JPanel getCenterPanel() {
 		return centerPanel;
 	}
-	
-	
-	
-	
-	
-	
-
 
 	public void buildMenu() {
-		menu = new JMenu("Cliente");
-
-		mi = new JMenuItem("Cadastrar");
-		mi.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				mudarParaTelaCadastroCliente();
-			}
-		});
 		
 		
-		menu.add(mi);
-		menubar.add(menu);
-
-		mi = new JMenuItem("Lista Clientes");
-		menu.add(mi);
-		menubar.add(menu);
-		menu.addSeparator();
-
-		mi = new JMenuItem("Excluir Cliente");
-		menu.add(mi);
-		menubar.add(menu);
-		menu.addSeparator();
-
-		mi = new JMenuItem("Close");
-		menu.add(mi);
-		menubar.add(menu);
-
-		menu = new JMenu("Vendas");
-
-		mi = new JMenuItem("Realizar Vendas");
-		menu.add(mi);
-		mi = new JMenuItem("Aprovar Vendas");
-		menu.add(mi);
-
-		JMenu med = new JMenu("Edit");
-		mi = new JMenuItem("Copy");
-		med.add(mi);
-		mi = new JMenuItem("Paste");
-		med.add(mi);
-		menu.add(med);
-		menubar.add(menu);
-		
-		JMenu inicio = new JMenu("Início");
+		JMenu inicio = new JMenu("Inicio");
 		this.inicioTela = new JMenuItem("Home");
 		this.inicioTela.addActionListener(new ActionListener() {
 			
@@ -175,6 +132,7 @@ public class MainView extends JFrame {
 			}
 		});
 		inicio.add(this.inicioTela);
+		
 		
 		this.sair = new JMenuItem("Sair");
 		this.sair.addActionListener(new ActionListener() {
@@ -189,7 +147,54 @@ public class MainView extends JFrame {
 		
 		
 		menubar.add(inicio);
-	}
 	
+	
+		
+		
+	
+		menu = new JMenu("Cliente");
+
+		mi = new JMenuItem("Cadastrar");
+		mi.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				mudarParaTelaCadastroCliente();
+			}
+		});
+		
+		
+		menu.add(mi);
+		menubar.add(menu);
+		menu.addSeparator();
+
+		mi = new JMenuItem("Lista Clientes");
+		menu.add(mi);
+		menubar.add(menu);
+		menu.addSeparator();
+
+		mi = new JMenuItem("Excluir Cliente");
+		menu.add(mi);
+		menubar.add(menu);
+		menu.addSeparator();
+
+		menu = new JMenu("Vendas");
+
+		mi = new JMenuItem("Realizar Vendas");
+		mi.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				mudarParaTelaRealizarVendas();
+			}
+		});
+		menu.add(mi);
+		menu.addSeparator();
+		mi = new JMenuItem("Aprovar Vendas");
+		menu.add(mi);
+		menu.addSeparator();
+		menubar.add(menu);
+		
+	}	
 		
 }

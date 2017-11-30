@@ -9,7 +9,6 @@ import br.edu.univas.si4.view.CadastroClientePanel;
 import br.edu.univas.si4.view.Login;
 import br.edu.univas.si4.view.MainView;
 import br.edu.univas.si4.view.MenuPanel;
-
 import br.edu.univas.si4.view.RealizarVendaPainel;
 
 public class MainController {
@@ -20,7 +19,6 @@ public class MainController {
 	private MainView mainView;
 	private CadastroClientePanel cadastroClienteView;
 	private RealizarVendaPainel realizarVendaPanel;
-	
 	
 	
 	private MenuPanel menuPanel;
@@ -80,5 +78,6 @@ public class MainController {
 	public String getName() {
 		return this.funcionario.getName();
 	}
+	
 
 }
