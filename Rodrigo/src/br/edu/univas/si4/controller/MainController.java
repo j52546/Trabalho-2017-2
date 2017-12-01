@@ -6,6 +6,7 @@ import br.edu.univas.si4.model.DBException;
 import br.edu.univas.si4.model.FuncionarioDAO;
 import br.edu.univas.si4.model.FuncionarioTO;
 import br.edu.univas.si4.view.CadastroClientePanel;
+import br.edu.univas.si4.view.ListaClintes;
 import br.edu.univas.si4.view.Login;
 import br.edu.univas.si4.view.MainView;
 import br.edu.univas.si4.view.MenuPanel;
@@ -19,7 +20,7 @@ public class MainController {
 	private MainView mainView;
 	private CadastroClientePanel cadastroClienteView;
 	private RealizarVendaPainel realizarVendaPanel;
-	
+	private ListaClintes listaClientes;
 	
 	private MenuPanel menuPanel;
 	
@@ -77,6 +78,10 @@ public class MainController {
 	
 	public String getName() {
 		return this.funcionario.getName();
+	}
+	public ListaClintes listaClientes(){
+		
+		return this.listaClientes;
 	}
 	
 

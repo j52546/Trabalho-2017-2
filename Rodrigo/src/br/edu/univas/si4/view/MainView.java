@@ -101,6 +101,19 @@ public class MainView extends JFrame {
 		this.repaint();
 	}
 	
+	private void mudarTelaListaCliente() {
+		this.getContentPane().removeAll();
+		try {
+		this.getContentPane().add(this.mainController.listaClientes(), BorderLayout.CENTER);
+		} catch (Exception e) {
+		// TODO Auto-generated catch block
+		JOptionPane.showMessageDialog(null, e.getMessage(), "Acesso Negado", JOptionPane.ERROR_MESSAGE);
+		this.getContentPane().add(this.mainController.telaInicio(), BorderLayout.CENTER);
+	}
+	this.revalidate();
+	this.repaint();
+	}
+	
 	private void mudarParaTelaRealizarVendas() {
 		this.getContentPane().removeAll();
 		try {
@@ -169,6 +182,14 @@ public class MainView extends JFrame {
 		menu.addSeparator();
 
 		mi = new JMenuItem("Lista Clientes");
+		mi.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
 		menu.add(mi);
 		menubar.add(menu);
 		menu.addSeparator();
