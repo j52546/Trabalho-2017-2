@@ -101,10 +101,10 @@ public class MainView extends JFrame {
 		this.repaint();
 	}
 	
-	private void mudarTelaListaCliente() {
+	private void mudarParatelelistaClientes() {
 		this.getContentPane().removeAll();
 		try {
-		this.getContentPane().add(this.mainController.listaClientes(), BorderLayout.CENTER);
+		this.getContentPane().add(this.mainController.mudarParatelelistaClientes(), BorderLayout.CENTER);
 		} catch (Exception e) {
 		// TODO Auto-generated catch block
 		JOptionPane.showMessageDialog(null, e.getMessage(), "Acesso Negado", JOptionPane.ERROR_MESSAGE);
@@ -186,7 +186,7 @@ public class MainView extends JFrame {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
+				mudarParatelelistaClientes();
 				
 			}
 		});

@@ -79,8 +79,11 @@ public class MainController {
 	public String getName() {
 		return this.funcionario.getName();
 	}
-	public ListaClintes listaClientes(){
+	public ListaClintes mudarParatelelistaClientes(){
 		
+		if(this.listaClientes == null) {
+			this.listaClientes = new ListaClintes();
+		}
 		return this.listaClientes;
 	}
 	
