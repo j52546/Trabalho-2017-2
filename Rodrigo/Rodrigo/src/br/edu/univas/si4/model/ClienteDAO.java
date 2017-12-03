@@ -9,8 +9,6 @@ import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
-import com.sun.corba.se.impl.orbutil.RepositoryIdUtility;
-
 public class ClienteDAO {
 
 	public boolean cadastrarCliente(ClienteTO clientTO) {
@@ -83,66 +81,10 @@ public class ClienteDAO {
 			System.out.println(e.getMessage());
 			JOptionPane.showMessageDialog(null, "Error ao excluir clientes", "Error", JOptionPane.ERROR_MESSAGE);
 		}
-		
-
+	}
 	
-	}
-
-	public ArrayList<ClienteTO> searchCliente(String dados, String opcao) {
-		Connection conn;
-		String sql = "SELECT * FROM CLIENTE WHERE " + opcao + " LIKE " + "'%"+dados+"%'";
-		ArrayList<ClienteTO> clientes = new ArrayList<>();
-		
-		try {
-			conn = DBUtil.openConnection();
-			PreparedStatement prep = conn.prepareStatement(sql);
-			ResultSet result = prep.executeQuery();
-				
-			while(result.next()) {
-				String cpf = result.getString(1);
-				String nome = result.getString(2);
-				String rua = result.getString(3);
-				Date nascimento = result.getDate(4);
-				String cidade = result.getString(5);
-				String telefone = result.getString(6);
-				ClienteTO cliente = new ClienteTO(nome, cpf, rua, cidade, telefone, nascimento);
-				clientes.add(cliente);
-			}
-			
-			
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-			JOptionPane.showMessageDialog(null, "Error ao consultar cliente", "ERROR", JOptionPane.ERROR_MESSAGE);
-		}
-			return clientes;
-		
-	}
-
-	public ClienteTO findOne(String cliente) {
-		Connection conn;
-		String sql = "SELECT * FROM CLIENTE WHERE NOME = ?";
-		
-		try {
-			conn = DBUtil.openConnection();
-			PreparedStatement prep = conn.prepareStatement(sql);
-			prep.setString(1, cliente);
-			
-			ResultSet res = prep.executeQuery();
-		
-			while(res.next()) {
-				return new ClienteTO(res.getString(2), res.getString(1), res.getString(3), res.getString(5), res.getString(6), res.getDate(4));
-			}
-			
-			
-			
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-			JOptionPane.showMessageDialog(null, "Error ao acessar unico cliente", "ERROR", JOptionPane.ERROR_MESSAGE);
-		}
-		return null;	
-		
-	}
-
+	//====================================
+	
 	public ClienteTO findOneCPF(String cliente) {
 		Connection conn;
 		String sql = "SELECT * FROM CLIENTE WHERE CPF = ?";
@@ -166,6 +108,8 @@ public class ClienteDAO {
 		}
 		return null;
 	}
+	
+	//===========================
 	
 	
 }

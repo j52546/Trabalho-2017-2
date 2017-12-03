@@ -7,8 +7,6 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -120,6 +118,7 @@ public class Login extends JFrame {
 	}
 	
 	public void verificarUsuario() {
+		this.dispose();
 		String username = this.usuarioText.getText();
 		String password = new String(this.senhaText.getPassword());
 		this.mainController.authUser(username, password);
@@ -152,29 +151,6 @@ public class Login extends JFrame {
 	
 	private JPasswordField addPassword() {
 		JPasswordField password = new JPasswordField();
-		password.addKeyListener(new KeyListener() {
-			
-			@Override
-			public void keyTyped(KeyEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-			
-			@Override
-			public void keyReleased(KeyEvent e) {
-				if(e.getKeyCode() == 10) {
-					verificarUsuario();
-				}
-
-				
-			}
-			
-			@Override
-			public void keyPressed(KeyEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-		});
 		password.setPreferredSize(new Dimension(200, 20));
 		return password;
 	}

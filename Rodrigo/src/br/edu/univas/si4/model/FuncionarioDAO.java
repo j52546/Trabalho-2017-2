@@ -3,6 +3,11 @@ package br.edu.univas.si4.model;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+
+import javax.swing.JOptionPane;
+
+import jdk.nashorn.internal.scripts.JO;
 
 
 
@@ -49,6 +54,79 @@ public class FuncionarioDAO {
 		} catch(Exception e) {
 			throw new DBException("Usuario/senha inexistente");
 		}
+	}
+
+	public ArrayList<FuncionarioTO> searchFuncionario(String dados, String opcao) {
+		Connection conn;
+		String sql = "SELECT * FROM FUNCIONARIO WHERE " + opcao + " LIKE ?";
+		ArrayList<FuncionarioTO> funcionarios = new ArrayList<>();
+		
+		try {
+			
+			conn = DBUtil.openConnection();
+			PreparedStatement prep = conn.prepareStatement(sql);
+			prep.setString(1, dados);
+			ResultSet result = prep.executeQuery();
+			
+			while(result.next()) {
+				String cpf = result.getString(1);
+				String cod = result.getString(2);
+				String nome = result.getString(3);
+				String rua = result.getString(4);
+				String funcao = result.getString(5);
+				String bairro = result.getString(6);
+				String telefone = result.getString(10);
+								
+				FuncionarioTO funcionario = new FuncionarioTO(nome, funcao);
+				funcionario.setBairro(bairro);
+				funcionario.setCod(cod);
+				funcionario.setCpf(cpf);
+				funcionario.setRua(rua);
+				funcionario.setTelefone(telefone);
+				funcionarios.add(funcionario);
+			}
+			
+			
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			JOptionPane.showMessageDialog(null, "Error ao consultar funcionarios", "ERROR", JOptionPane.ERROR_MESSAGE);
+		}
+		return funcionarios;
+	}
+	
+	public ArrayList<FuncionarioTO> findAll() {
+		Connection conn;
+		String sql = "SELECT * FROM FUNCIONARIO";
+		ArrayList<FuncionarioTO> funcionarios = new ArrayList<>();
+		try {
+			conn = DBUtil.openConnection();
+			PreparedStatement prep = conn.prepareStatement(sql);
+			ResultSet result = prep.executeQuery();
+			while(result.next()) {
+				String cpf = result.getString(1);
+				String cod = result.getString(2);
+				String nome = result.getString(3);
+				String rua = result.getString(4);
+				String funcao = result.getString(5);
+				String bairro = result.getString(6);
+				String telefone = result.getString(10);
+								
+				FuncionarioTO funcionario = new FuncionarioTO(nome, funcao);
+				funcionario.setBairro(bairro);
+				funcionario.setCod(cod);
+				funcionario.setCpf(cpf);
+				funcionario.setRua(rua);
+				funcionario.setTelefone(telefone);
+				funcionarios.add(funcionario);
+				
+			}
+			
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			JOptionPane.showMessageDialog(null, "Error ao trazer funcionarios", "ERROR", JOptionPane.ERROR_MESSAGE);
+		}
+		
+		return funcionarios;
 	}
 
 }

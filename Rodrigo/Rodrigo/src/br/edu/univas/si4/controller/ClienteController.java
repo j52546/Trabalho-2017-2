@@ -31,16 +31,7 @@ public class ClienteController {
 	public void excluirCliente(String cpf) {
 		this.clienteDAO.deleteCliente(cpf);
 	}
-
-	public ArrayList<ClienteTO> searchCliente(String dados, String opcao) {
-		return this.clienteDAO.searchCliente(dados, opcao);
-		
-	}
-
-	public ClienteTO findOne(String cliente) {
-			return this.clienteDAO.findOne(cliente);
-	}
-
+	
 	public ClienteTO findOneCPF(String cliente) {
 		return this.clienteDAO.findOneCPF(cliente);
 	}

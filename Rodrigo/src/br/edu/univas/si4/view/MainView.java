@@ -104,15 +104,17 @@ public class MainView extends JFrame {
 	private void mudarParatelelistaClientes() {
 		this.getContentPane().removeAll();
 		try {
-		this.getContentPane().add(this.mainController.mudarParatelelistaClientes(), BorderLayout.CENTER);
+		this.getContentPane().add(this.mainController.mudarParatelelistaCliente(), BorderLayout.CENTER);
 		} catch (Exception e) {
 		// TODO Auto-generated catch block
-		JOptionPane.showMessageDialog(null, e.getMessage(), "Acesso Negado", JOptionPane.ERROR_MESSAGE);
+		JOptionPane.showMessageDialog(null, "Acesso Negado", e.getMessage(), JOptionPane.ERROR_MESSAGE);
 		this.getContentPane().add(this.mainController.telaInicio(), BorderLayout.CENTER);
 	}
 	this.revalidate();
 	this.repaint();
 	}
+	
+
 	
 	private void mudarParaTelaRealizarVendas() {
 		this.getContentPane().removeAll();
@@ -121,12 +123,87 @@ public class MainView extends JFrame {
 		} catch(Exception e) {
 			
 			// TODO Auto-generated catch block
-			JOptionPane.showMessageDialog(null, e.getMessage(), "Acesso Negado", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(null, "Acesso Negado", e.getMessage(), JOptionPane.ERROR_MESSAGE);
 			this.getContentPane().add(this.mainController.telaInicio(), BorderLayout.CENTER);
 		}
 		this.revalidate();
 		this.repaint();
 	}
+	
+	private void telaExcluirCliente() {
+		this.getContentPane().removeAll();
+		try {
+			this.getContentPane().add(this.mainController.mudarParaTelaExcluirCliente(),BorderLayout.CENTER);
+		} catch(Exception e) {
+			
+			// TODO Auto-generated catch block
+			JOptionPane.showMessageDialog(null, "Acesso Negado", e.getMessage(), JOptionPane.ERROR_MESSAGE);
+			this.getContentPane().add(this.mainController.telaInicio(), BorderLayout.CENTER);
+		}
+		this.revalidate();
+		this.repaint();
+	
+	}
+	
+	private void telaRelatorioCliente() {
+		this.getContentPane().removeAll();
+		try {
+			this.getContentPane().add(this.mainController.mudarParaTelaRelatorioCliente(),BorderLayout.CENTER);
+		} catch(Exception e) {
+			
+			// TODO Auto-generated catch block
+			JOptionPane.showMessageDialog(null, "Acesso Negado", e.getMessage(), JOptionPane.ERROR_MESSAGE);
+			this.getContentPane().add(this.mainController.telaInicio(), BorderLayout.CENTER);
+		}
+		this.revalidate();
+		this.repaint();
+	
+	}
+	
+	private void mudarParaTelaAprovacao() {
+		this.getContentPane().removeAll();
+		try {
+			this.getContentPane().add(this.mainController.mudarParaTelaAprovacao(), BorderLayout.CENTER);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			JOptionPane.showMessageDialog(null, "Acesso Negado", e.getMessage(), JOptionPane.ERROR_MESSAGE);
+			this.getContentPane().add(this.mainController.telaInicio(), BorderLayout.CENTER);
+		}
+		this.revalidate();
+		this.repaint();
+}
+	
+	private void telaRelatorioFuncionario() {
+		this.getContentPane().removeAll();
+		try {
+			this.getContentPane().add(this.mainController.mudarParaTelaRelatorioFuncionario(),BorderLayout.CENTER);
+		} catch(Exception e) {
+			
+			// TODO Auto-generated catch block
+			JOptionPane.showMessageDialog(null, "Acesso Negado", e.getMessage(), JOptionPane.ERROR_MESSAGE);
+			this.getContentPane().add(this.mainController.telaInicio(), BorderLayout.CENTER);
+		}
+		this.revalidate();
+		this.repaint();
+	
+	}
+	
+	private void telaRelatorioVenda() {
+		this.getContentPane().removeAll();
+		try {
+			this.getContentPane().add(this.mainController.mudarParaTelaRelatorioVenda(),BorderLayout.CENTER);
+		} catch(Exception e) {
+			
+			// TODO Auto-generated catch block
+			JOptionPane.showMessageDialog(null, "Acesso Negado", e.getMessage(), JOptionPane.ERROR_MESSAGE);
+			this.getContentPane().add(this.mainController.telaInicio(), BorderLayout.CENTER);
+		}
+		this.revalidate();
+		this.repaint();
+	
+	}
+	
+	
 	
 	private JPanel getCenterPanel() {
 		return centerPanel;
@@ -182,19 +259,27 @@ public class MainView extends JFrame {
 		menu.addSeparator();
 
 		mi = new JMenuItem("Lista Clientes");
+
 		mi.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				mudarParatelelistaClientes();
 				
-			}
-		});
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					mudarParatelelistaClientes();
+					
+				}
+			});
 		menu.add(mi);
 		menubar.add(menu);
 		menu.addSeparator();
 
 		mi = new JMenuItem("Excluir Cliente");
+		mi.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				telaExcluirCliente();
+			}
+		});
 		menu.add(mi);
 		menubar.add(menu);
 		menu.addSeparator();
@@ -212,10 +297,57 @@ public class MainView extends JFrame {
 		menu.add(mi);
 		menu.addSeparator();
 		mi = new JMenuItem("Aprovar Vendas");
+		mi.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				mudarParaTelaAprovacao();
+				
+			}
+		});
 		menu.add(mi);
 		menu.addSeparator();
 		menubar.add(menu);
 		
+		menu = new JMenu("Relatorios");
+
+		mi = new JMenuItem("Relatorio de cliente");
+		mi.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				telaRelatorioCliente();
+			}
+		});
+		menu.add(mi);
+		menu.addSeparator();
+		mi = new JMenuItem("Relatorio de vendas");
+		mi.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				telaRelatorioVenda();
+			}
+		});
+		menu.add(mi);
+		menu.addSeparator();
+		menubar.add(menu);
+
+		mi = new JMenuItem("Listar funcionario");
+		mi.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				telaRelatorioFuncionario();
+			}
+		});
+		menu.add(mi);
+		menu.addSeparator();
+		menubar.add(menu);
+
+	
+		
+	
 	}	
 		
 }

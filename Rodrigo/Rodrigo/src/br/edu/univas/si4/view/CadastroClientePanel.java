@@ -84,6 +84,7 @@ public class CadastroClientePanel extends JPanel{
 	
 	private void initialize(){
 		setLayout(new GridBagLayout());
+		getButtonGroup();
 		getMascaraData();
 		getMascaraCpf();
 		getMascaraTel();
@@ -92,6 +93,9 @@ public class CadastroClientePanel extends JPanel{
 		this.add(getTextNome(),getTextNomeConstraints());
 		this.add(getLabelNascimento(),getLabelNascimentoConstraints());
 		this.add(getTextNascimento(),getTextNascimentoConstraints());
+		this.add(getLabelSexo(),getLabelSexoConstraints());
+		this.add(getButtonMasculino(),getMasculinoConstraints());
+		this.add(getButtonFeminino(),getFemininoConstraints());
 		this.add(getLabelCpf(),getLabelCpfConstraints());
 		this.add(getTextCpf(),getTextCpfConstraints());
 		this.add(getLabelRua(),getLabelEnderecoConstraints());
@@ -132,7 +136,14 @@ public class CadastroClientePanel extends JPanel{
 		String telefone = getTextTel().getText().toString();
 		String nascimento = getTextNascimento().getText().toString();
 				
-	
+		System.out.println(nome);
+		System.out.println(cpf);
+		System.out.println(rua);
+		System.out.println(cidade);
+		System.out.println(telefone);
+		System.out.println(nascimento);
+		
+		
 		SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
 		try {
 			Date data = formato.parse(nascimento);
@@ -188,7 +199,7 @@ public class CadastroClientePanel extends JPanel{
 			mascaraData.setPlaceholderCharacter('_');
 			}
 			catch(ParseException excp){
-				   System.err.println("Erro na formatacao: " + excp.getMessage());
+				   System.err.println("Erro na formatação: " + excp.getMessage());
 	               System.exit(-1);
 			}
 		}
@@ -203,7 +214,31 @@ public class CadastroClientePanel extends JPanel{
 		return labelSexo;
 	}
 	
-
+	private JRadioButton getButtonMasculino() {
+		if(buttonMasculino == null){
+			buttonMasculino = new JRadioButton();
+			buttonMasculino.setText("Masculino");
+		}
+		
+		return buttonMasculino;
+	}
+	
+	private JRadioButton getButtonFeminino() {
+		if(buttonFeminino == null){
+			buttonFeminino= new JRadioButton();
+			buttonFeminino.setText("Feminino");
+		}
+		return buttonFeminino;
+	}
+	
+	private ButtonGroup getButtonGroup(){
+		if(buttonGroup == null){
+			buttonGroup = new ButtonGroup();
+			buttonGroup.add(getButtonMasculino());
+			buttonGroup.add(getButtonFeminino());
+		}
+		return buttonGroup;
+	}
 
 	private JLabel getLabelCpf() {
 		if(labelCpf== null){
@@ -228,7 +263,7 @@ public class CadastroClientePanel extends JPanel{
 			mascaraCpf.setPlaceholderCharacter('_');
 			}
 			catch(ParseException excp){
-				   System.err.println("Erro na formatacao: " + excp.getMessage());
+				   System.err.println("Erro na formatação: " + excp.getMessage());
 	               System.exit(-1);
 			}
 		}
@@ -306,7 +341,7 @@ public class CadastroClientePanel extends JPanel{
 			mascaraTel.setPlaceholderCharacter('_');
 			}
 			catch(ParseException excp){
-				   System.err.println("Erro na formatacao: " + excp.getMessage());
+				   System.err.println("Erro na formatação: " + excp.getMessage());
 	               System.exit(-1);
 			}
 		}
@@ -394,6 +429,25 @@ public class CadastroClientePanel extends JPanel{
 		return labelSexoConstraints;
 	}
 
+	private GridBagConstraints getMasculinoConstraints() {
+		if(masculinoConstraints == null){
+			masculinoConstraints = new GridBagConstraints();
+			masculinoConstraints.gridx = 1;
+			masculinoConstraints.gridy = 2;
+			masculinoConstraints.insets = new Insets(-15, -125, 1, 15);
+		}
+		return masculinoConstraints;
+	}
+
+	private GridBagConstraints getFemininoConstraints() {
+		if(femininoConstraints == null){
+			femininoConstraints = new GridBagConstraints();
+			femininoConstraints.gridx = 1;
+			femininoConstraints.gridy = 3;
+			femininoConstraints.insets = new Insets(-15, -130, 15, 15);
+		}
+		return femininoConstraints;
+	}
 
 	private GridBagConstraints getLabelCpfConstraints() {
 		if(labelCpfConstraints == null){
