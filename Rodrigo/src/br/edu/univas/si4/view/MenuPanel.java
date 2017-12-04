@@ -29,7 +29,7 @@ public class MenuPanel extends JPanel {
 		gbc.anchor = GridBagConstraints.CENTER;
 		gbc.insets = new Insets(20, 20, 20, 20);
 		
-		JLabel label = new JLabel("Bem vindo a distribuidora Univas");
+		JLabel label = new JLabel("Bem vindo a distribuidora ASTRA Júlio");
 		label.setFont(new Font("SansSerif", Font.BOLD, 48));
 		add(label, gbc);
 		

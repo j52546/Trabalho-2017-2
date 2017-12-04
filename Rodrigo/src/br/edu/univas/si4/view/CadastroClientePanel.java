@@ -188,7 +188,7 @@ public class CadastroClientePanel extends JPanel{
 			mascaraData.setPlaceholderCharacter('_');
 			}
 			catch(ParseException excp){
-				   System.err.println("Erro na formatacao: " + excp.getMessage());
+				   System.err.println("Erro na formatação: " + excp.getMessage());
 	               System.exit(-1);
 			}
 		}
@@ -228,7 +228,7 @@ public class CadastroClientePanel extends JPanel{
 			mascaraCpf.setPlaceholderCharacter('_');
 			}
 			catch(ParseException excp){
-				   System.err.println("Erro na formatacao: " + excp.getMessage());
+				   System.err.println("Erro na formatação: " + excp.getMessage());
 	               System.exit(-1);
 			}
 		}
@@ -306,7 +306,7 @@ public class CadastroClientePanel extends JPanel{
 			mascaraTel.setPlaceholderCharacter('_');
 			}
 			catch(ParseException excp){
-				   System.err.println("Erro na formatacao: " + excp.getMessage());
+				   System.err.println("Erro na formatação: " + excp.getMessage());
 	               System.exit(-1);
 			}
 		}

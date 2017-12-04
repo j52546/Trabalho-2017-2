@@ -212,7 +212,7 @@ public class RealizarVendaPainel extends JPanel{
 		columnNames.add("CPF");
 		columnNames.add("Nome Produto");
 		columnNames.add("Quantidade");
-		columnNames.add("Preco");
+		columnNames.add("Preço");
 		
 		tablePedido = new JTable(null, columnNames);
 		tablePedido.setFillsViewportHeight(true);

@@ -55,7 +55,7 @@ public class ListaClintes extends JPanel {
 		Vector<String> columnNames = new Vector<>();
 		columnNames.add("Nome");
 		columnNames.add("CPF");
-		columnNames.add("Endereco");
+		columnNames.add("Endereço");
 		columnNames.add("Cidade");
 		columnNames.add("Telefone");
 		

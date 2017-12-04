@@ -60,7 +60,7 @@ public class RelatorioCliente extends JPanel {
 	
 	public void setTopPanel() {
 		this.topPanel = new JPanel();
-		JLabel title = new JLabel("Relatorio de clientes");
+		JLabel title = new JLabel("Relatório de clientes");
 		title.setFont(new Font("Arial", Font.BOLD, 36));
 		title.setHorizontalAlignment(SwingConstants.CENTER);
 		this.topPanel.add(title);
@@ -141,7 +141,7 @@ public class RelatorioCliente extends JPanel {
 		Vector<String> columnNames = new Vector<>();
 		columnNames.add("Nome");
 		columnNames.add("CPF");
-		columnNames.add("Endereco");
+		columnNames.add("Endereço");
 		columnNames.add("Cidade");
 		columnNames.add("Telefone");
 		

@@ -10,9 +10,9 @@ public class DBUtil {
 		try {
 			Class.forName("org.postgresql.Driver");
 
-			String url = "jdbc:postgresql://localhost:5432/postgres";
+			String url = "jdbc:postgresql://localhost:5432/distribuidora";
 			String username = "postgres";
-			String password = "0525";
+			String password = "postgres";
 
 			Connection conn = 
 					DriverManager.getConnection(url, username, password);

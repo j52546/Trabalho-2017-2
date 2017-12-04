@@ -63,7 +63,7 @@ public class RelatorioVenda extends JPanel {
 	
 	public void setTopPanel() {
 		this.topPanel = new JPanel();
-		JLabel title = new JLabel("Relatorio de Vendas");
+		JLabel title = new JLabel("Relatório de Vendas");
 		title.setFont(new Font("Arial", Font.BOLD, 36));
 		title.setHorizontalAlignment(SwingConstants.CENTER);
 		this.topPanel.add(title);
@@ -82,7 +82,7 @@ public class RelatorioVenda extends JPanel {
 		gbc.insets = new Insets(5, 20, 5, 0);
 		this.gridBag.add(information, gbc);
 		
-		JLabel datas = new JLabel("Filtar por data de inicio e data final (obs* tem que informar nome cliente ou produto)");
+		JLabel datas = new JLabel("Filtar por data de início e data final (obs* tem que informar nome cliente ou produto)");
 		gbc.gridx = 3;
 		gbc.gridy = 0;
 		gbc.gridwidth = 2;
@@ -207,13 +207,13 @@ public class RelatorioVenda extends JPanel {
 		gbc.insets = new Insets(15, 15, 15, 15);
 		this.gridBag.add(resultado, gbc);
 		
-		resultadoEntrar = new JLabel("Valores a entrar ao serem aprovadas: ");
+		resultadoEntrar = new JLabel("Valores a entrar após serem aprovadas: ");
 		gbc.gridx = 4;
 		this.gridBag.add(resultadoEntrar, gbc);
 		
 		JComboBox<String> aprovado = new JComboBox<>();
 		aprovado.addItem("Aprovado");
-		aprovado.addItem("Nao Aprovado");
+		aprovado.addItem("Não Aprovado");
 		aprovado.addActionListener(new ActionListener() {
 			
 			@Override
@@ -274,7 +274,7 @@ public class RelatorioVenda extends JPanel {
 		}
 		
 		this.resultado.setText("Valor das vendas ja aprovadas: R$ " + soma);
-		this.resultadoEntrar.setText("Valores a entrar ao serem aprovadas: R$ " + somaEntrar);
+		this.resultadoEntrar.setText("Valores a entrar após serem aprovadas: R$ " + somaEntrar);
 		
 		
 	}
