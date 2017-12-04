@@ -333,7 +333,7 @@ public class MainView extends JFrame {
 		menu.addSeparator();
 		menubar.add(menu);
 
-		mi = new JMenuItem("Listar funcionário");
+		mi = new JMenuItem("Listar funcionario");
 		mi.addActionListener(new ActionListener() {
 			
 			@Override
