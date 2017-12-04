@@ -63,7 +63,7 @@ public class RelatorioVenda extends JPanel {
 	
 	public void setTopPanel() {
 		this.topPanel = new JPanel();
-		JLabel title = new JLabel("Relatório de Vendas");
+		JLabel title = new JLabel("Relatorio de Vendas");
 		title.setFont(new Font("Arial", Font.BOLD, 36));
 		title.setHorizontalAlignment(SwingConstants.CENTER);
 		this.topPanel.add(title);
@@ -82,7 +82,7 @@ public class RelatorioVenda extends JPanel {
 		gbc.insets = new Insets(5, 20, 5, 0);
 		this.gridBag.add(information, gbc);
 		
-		JLabel datas = new JLabel("Filtar por data de início e data final (obs* tem que informar nome cliente ou produto)");
+		JLabel datas = new JLabel("Filtar por data de inicio e data final (obs* tem que informar nome cliente ou produto)");
 		gbc.gridx = 3;
 		gbc.gridy = 0;
 		gbc.gridwidth = 2;

@@ -55,7 +55,7 @@ public class FuncionarioView extends JPanel {
 	
 	public void setTopPanel() {
 		this.topPanel = new JPanel();
-		JLabel title = new JLabel("Relatório de Funcionários");
+		JLabel title = new JLabel("Relatorio de Funcionários");
 		title.setFont(new Font("Arial", Font.BOLD, 36));
 		title.setHorizontalAlignment(SwingConstants.CENTER);
 		this.topPanel.add(title);

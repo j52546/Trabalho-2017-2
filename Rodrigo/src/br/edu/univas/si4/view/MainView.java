@@ -309,9 +309,9 @@ public class MainView extends JFrame {
 		menu.addSeparator();
 		menubar.add(menu);
 		
-		menu = new JMenu("Relatórios");
+		menu = new JMenu("Relatorios");
 
-		mi = new JMenuItem("Relatório de cliente");
+		mi = new JMenuItem("Relatorio de cliente");
 		mi.addActionListener(new ActionListener() {
 			
 			@Override
@@ -321,7 +321,7 @@ public class MainView extends JFrame {
 		});
 		menu.add(mi);
 		menu.addSeparator();
-		mi = new JMenuItem("Relatório de vendas");
+		mi = new JMenuItem("Relatorio de vendas");
 		mi.addActionListener(new ActionListener() {
 			
 			@Override
